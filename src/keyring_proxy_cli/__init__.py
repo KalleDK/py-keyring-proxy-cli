@@ -9,6 +9,7 @@ from typing_extensions import Annotated
 
 cli = typer.Typer()
 
+
 socket_app = typer.Typer()
 cli.add_typer(socket_app, name="socket")
 
@@ -68,7 +69,11 @@ def proxy_json(data: str):
 
 
 @socket_app.command("serve")
-def socket_serve():
+def socket_serve(verbose: bool = False):
+    if verbose:
+        import logging
+
+        logging.basicConfig(level=logging.DEBUG)
     server = SocketServer()
     server.serve()
 
