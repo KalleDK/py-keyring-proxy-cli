@@ -1,16 +1,23 @@
 from typing import Optional
 
 import keyring
+import keyring.backend
 import typer
-from typing_extensions import Annotated
-
 from keyring_proxy.socketproxy import SocketServer
-from keyring_proxy.stdioproxy import StdioProxyFrontend, COMMAND_NAME
+from keyring_proxy.stdioproxy import COMMAND_NAME, StdioProxyFrontend
+from typing_extensions import Annotated
 
 cli = typer.Typer()
 
 socket_app = typer.Typer()
 cli.add_typer(socket_app, name="socket")
+
+
+@cli.command("list")
+def list_backends():
+    rings = keyring.backend.get_all_keyring()
+    for ring in rings:
+        print(ring)
 
 
 @cli.command("cred")
