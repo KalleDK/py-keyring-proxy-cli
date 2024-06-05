@@ -11,13 +11,16 @@ tasks:
       - git push
   devrel:
     cmds:
-      - git add . && git commit -m "devrel" || true
+      - git add .
+      - if git commit --dry-run --short; then git commit -m "devrel"; else echo nothing changed; fi
       - bumpversion build
       - pdm publish
       - git push
   update:
     cmds:
       - pdm add keyring-proxy
+      - git add pdm.lock pyproject.toml
+      - if git commit --dry-run --short; then git commit -m "Update keyring-proxy"; else echo nothing updated; fi
   create_venv:
     cmds:
       - python -m venv ~/.local/share/venv/{{.VENV_NAME}}
