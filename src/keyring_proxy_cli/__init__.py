@@ -6,7 +6,7 @@ from typing import Optional
 import keyring
 import keyring.backend
 import typer
-from keyring_proxy.socketproxy import SocketServer, default_socket_mgr
+from keyring_proxy.socketproxy import SocketServer, default_socket_mgr_server
 from keyring_proxy.stdioproxy import COMMAND_NAME, StdioProxyFrontend
 from typing_extensions import Annotated
 
@@ -72,11 +72,14 @@ def proxy_json(data: str):
 
 @dataclasses.dataclass
 class IP:
-    ip: ipaddress.IPv4Address | ipaddress.IPv6Address
+    ip: ipaddress.IPv4Address | ipaddress.IPv6Address | str
 
 
 def parse_ip(ip: str) -> IP:
-    return IP(ipaddress.ip_address(ip))
+    try:
+        return IP(ipaddress.ip_address(ip))
+    except ValueError:
+        return IP(ip)
 
 
 @cli.command("serve")
@@ -90,7 +93,7 @@ def socket_serve(
         import logging
 
         logging.basicConfig(level=logging.DEBUG)
-    server = SocketServer(default_socket_mgr(path, None if ip is None else ip.ip, port))
+    server = SocketServer(default_socket_mgr_server(path, None if ip is None else ip.ip, port))
     server.serve()
 
 
