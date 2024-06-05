@@ -1,10 +1,10 @@
 [project]
 name = "keyring-proxy-cli"
-version = "0.1.10"
+version = "0.1.11"
 description = "Default template for PDM package"
 authors = [{ name = "Kalle M. Aagaard", email = "git@k-moeller.dk" }]
 dependencies = [
-    "keyring-proxy>=0.2.11.2",
+    "keyring-proxy>=0.2.13",
     "typer>=0.12.3",
 ]
 requires-python = ">=3.12"
