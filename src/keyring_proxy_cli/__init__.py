@@ -1,9 +1,12 @@
+import dataclasses
+import ipaddress
+import pathlib
 from typing import Optional
 
 import keyring
 import keyring.backend
 import typer
-from keyring_proxy.socketproxy import SocketServer
+from keyring_proxy.socketproxy import SocketServer, default_socket_mgr
 from keyring_proxy.stdioproxy import COMMAND_NAME, StdioProxyFrontend
 from typing_extensions import Annotated
 
@@ -11,7 +14,6 @@ cli = typer.Typer()
 
 
 socket_app = typer.Typer()
-cli.add_typer(socket_app, name="socket")
 
 
 @cli.command("list")
@@ -68,13 +70,27 @@ def proxy_json(data: str):
     print(client.handle(data))
 
 
-@socket_app.command("serve")
-def socket_serve(verbose: bool = False):
+@dataclasses.dataclass
+class IP:
+    ip: ipaddress.IPv4Address | ipaddress.IPv6Address
+
+
+def parse_ip(ip: str) -> IP:
+    return IP(ipaddress.ip_address(ip))
+
+
+@cli.command("serve")
+def socket_serve(
+    path: Annotated[Optional[pathlib.Path], typer.Option()] = None,
+    ip: Annotated[Optional[IP], typer.Option(parser=parse_ip)] = None,
+    port: Optional[int] = None,
+    verbose: Annotated[bool, typer.Option("--verbose", "-v")] = False,
+):
     if verbose:
         import logging
 
         logging.basicConfig(level=logging.DEBUG)
-    server = SocketServer()
+    server = SocketServer(default_socket_mgr(path, None if ip is None else ip.ip, port))
     server.serve()
 
 
