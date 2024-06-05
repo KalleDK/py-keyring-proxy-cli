@@ -4,7 +4,7 @@ version = "0.1.6"
 description = "Default template for PDM package"
 authors = [{ name = "Kalle M. Aagaard", email = "git@k-moeller.dk" }]
 dependencies = [
-    "keyring-proxy>=0.2.2",
+    "keyring-proxy>=0.2.4",
     "typer>=0.12.3",
 ]
 requires-python = ">=3.12"
@@ -22,6 +22,9 @@ distribution = true
 
 [tool.pdm.dev-dependencies]
 tools = ["ruff>=0.4.6", "black>=24.4.2", "mypy>=1.10.0"]
+dev = [
+    "-e file:///${PROJECT_ROOT}/../py-keyring-proxy#egg=keyring-proxy",
+]
 
 [tool.ruff]
 line-length = 120

@@ -2,17 +2,17 @@
 # It is not intended for manual editing.
 
 [metadata]
-groups = ["default"]
+groups = ["default", "dev"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:4c6c009f7c1e367dc2a594e986312372e674ca89482017e4b89e19048d2b2095"
+content_hash = "sha256:7bfe62cdd938c897687f82a88f3a8b0efbde8b1c6412b071dd4baf4969a62207"
 
 [[package]]
 name = "cffi"
 version = "1.16.0"
 requires_python = ">=3.8"
 summary = "Foreign Function Interface for Python calling C code."
-groups = ["default"]
+groups = ["default", "dev"]
 marker = "platform_python_implementation != \"PyPy\" and sys_platform == \"linux\""
 dependencies = [
     "pycparser",
@@ -62,7 +62,7 @@ name = "cryptography"
 version = "42.0.7"
 requires_python = ">=3.7"
 summary = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
-groups = ["default"]
+groups = ["default", "dev"]
 marker = "sys_platform == \"linux\""
 dependencies = [
     "cffi>=1.12; platform_python_implementation != \"PyPy\"",
@@ -107,7 +107,7 @@ name = "jaraco-classes"
 version = "3.4.0"
 requires_python = ">=3.8"
 summary = "Utility functions for Python class constructs"
-groups = ["default"]
+groups = ["default", "dev"]
 dependencies = [
     "more-itertools",
 ]
@@ -121,7 +121,7 @@ name = "jaraco-context"
 version = "5.3.0"
 requires_python = ">=3.8"
 summary = "Useful decorators and context managers"
-groups = ["default"]
+groups = ["default", "dev"]
 files = [
     {file = "jaraco.context-5.3.0-py3-none-any.whl", hash = "sha256:3e16388f7da43d384a1a7cd3452e72e14732ac9fe459678773a3608a812bf266"},
     {file = "jaraco.context-5.3.0.tar.gz", hash = "sha256:c2f67165ce1f9be20f32f650f25d8edfc1646a8aeee48ae06fb35f90763576d2"},
@@ -132,7 +132,7 @@ name = "jaraco-functools"
 version = "4.0.1"
 requires_python = ">=3.8"
 summary = "Functools like those found in stdlib"
-groups = ["default"]
+groups = ["default", "dev"]
 dependencies = [
     "more-itertools",
 ]
@@ -146,7 +146,7 @@ name = "jeepney"
 version = "0.8.0"
 requires_python = ">=3.7"
 summary = "Low-level, pure Python DBus protocol wrapper."
-groups = ["default"]
+groups = ["default", "dev"]
 marker = "sys_platform == \"linux\""
 files = [
     {file = "jeepney-0.8.0-py3-none-any.whl", hash = "sha256:c0a454ad016ca575060802ee4d590dd912e35c122fa04e70306de3d076cce755"},
@@ -158,7 +158,7 @@ name = "keyring"
 version = "25.2.1"
 requires_python = ">=3.8"
 summary = "Store and access your passwords safely."
-groups = ["default"]
+groups = ["default", "dev"]
 dependencies = [
     "SecretStorage>=3.2; sys_platform == \"linux\"",
     "jaraco-classes",
@@ -174,16 +174,14 @@ files = [
 
 [[package]]
 name = "keyring-proxy"
-version = "0.2.2"
+version = "0.2.4"
 requires_python = ">=3.12"
+editable = true
+path = "../py-keyring-proxy"
 summary = "Proxy Base for pypi keyring"
-groups = ["default"]
+groups = ["default", "dev"]
 dependencies = [
     "keyring>=25.2.1",
-]
-files = [
-    {file = "keyring_proxy-0.2.2-py3-none-any.whl", hash = "sha256:e9e5858261d9809c65bb230199b7e9da25371a0f983eb35a0e2717c9f37a1d95"},
-    {file = "keyring_proxy-0.2.2.tar.gz", hash = "sha256:2d51d39cf35ba37d2749f3c785d30667be0120c5bc55be32466abb450e1f88d0"},
 ]
 
 [[package]]
@@ -216,7 +214,7 @@ name = "more-itertools"
 version = "10.2.0"
 requires_python = ">=3.8"
 summary = "More routines for operating on iterables, beyond itertools"
-groups = ["default"]
+groups = ["default", "dev"]
 files = [
     {file = "more-itertools-10.2.0.tar.gz", hash = "sha256:8fccb480c43d3e99a00087634c06dd02b0d50fbf088b380de5a41a015ec239e1"},
     {file = "more_itertools-10.2.0-py3-none-any.whl", hash = "sha256:686b06abe565edfab151cb8fd385a05651e1fdf8f0a14191e4439283421f8684"},
@@ -227,7 +225,7 @@ name = "pycparser"
 version = "2.22"
 requires_python = ">=3.8"
 summary = "C parser in Python"
-groups = ["default"]
+groups = ["default", "dev"]
 marker = "platform_python_implementation != \"PyPy\" and sys_platform == \"linux\""
 files = [
     {file = "pycparser-2.22-py3-none-any.whl", hash = "sha256:c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc"},
@@ -250,7 +248,7 @@ name = "pywin32-ctypes"
 version = "0.2.2"
 requires_python = ">=3.6"
 summary = "A (partial) reimplementation of pywin32 using ctypes/cffi"
-groups = ["default"]
+groups = ["default", "dev"]
 marker = "sys_platform == \"win32\""
 files = [
     {file = "pywin32-ctypes-0.2.2.tar.gz", hash = "sha256:3426e063bdd5fd4df74a14fa3cf80a0b42845a87e1d1e81f6549f9daec593a60"},
@@ -277,7 +275,7 @@ name = "secretstorage"
 version = "3.3.3"
 requires_python = ">=3.6"
 summary = "Python bindings to FreeDesktop.org Secret Service API"
-groups = ["default"]
+groups = ["default", "dev"]
 marker = "sys_platform == \"linux\""
 dependencies = [
     "cryptography>=2.0",
