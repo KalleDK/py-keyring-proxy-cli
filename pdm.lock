@@ -5,7 +5,7 @@
 groups = ["default", "tools"]
 strategy = []
 lock_version = "4.5.0"
-content_hash = "sha256:9f0945eaf8ddf9ddd053034c7bb4d3e5de4f78a054b100d9a85c7680351186d8"
+content_hash = "sha256:f156db131c6c72260f490ccaa113f37672b9c903817379e1f80a2bfadc7db53d"
 
 [[metadata.targets]]
 requires_python = ">=3.12"
@@ -149,15 +149,15 @@ files = [
 
 [[package]]
 name = "keyring-proxy"
-version = "0.2.14.32"
+version = "0.2.14.33"
 summary = ""
 dependencies = [
     "keyring",
     "pydantic",
 ]
 files = [
-    {file = "keyring_proxy-0.2.14.32-py3-none-any.whl", hash = "sha256:0b14bd473b6fb261e433d4bff5712c1bd0a64af904c7ccc898548e69c75425f7"},
-    {file = "keyring_proxy-0.2.14.32.tar.gz", hash = "sha256:1e3b6a5dab13bbb12893a3564a4ee575c6ccfc97e84f9001c748153e9b9c6be4"},
+    {file = "keyring_proxy-0.2.14.33-py3-none-any.whl", hash = "sha256:38302213f504a903efaaf6a5d20de7c9d6808edd1be67d8c69c160bfe6250302"},
+    {file = "keyring_proxy-0.2.14.33.tar.gz", hash = "sha256:8cf5c94512961cc02c6a907008efb14b3ee53270cda7835472389562f89d6498"},
 ]
 
 [[package]]
