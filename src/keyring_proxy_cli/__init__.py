@@ -1,5 +1,7 @@
+import asyncio
 import dataclasses
 import ipaddress
+import logging
 import pathlib
 from typing import Optional
 
@@ -7,7 +9,7 @@ import keyring
 import keyring.backend
 import typer
 from keyring_proxy.socketproxy import SocketServer, default_socket_mgr_server
-from keyring_proxy.stdioproxy import COMMAND_NAME, StdioProxyFrontend
+from keyring_proxy.stdioproxy import COMMAND_NAME, StdioServer
 from typing_extensions import Annotated
 
 cli = typer.Typer()
@@ -65,9 +67,9 @@ def proxy_del_password(service: str, username: str):
 
 
 @cli.command(COMMAND_NAME)
-def proxy_json(data: str):
-    client = StdioProxyFrontend()
-    print(client.handle(data))
+def proxy_json():
+    server = StdioServer.from_stdio()
+    asyncio.run(server.serve_forever())
 
 
 @dataclasses.dataclass
@@ -88,13 +90,17 @@ def socket_serve(
     ip: Annotated[Optional[IP], typer.Option(parser=parse_ip)] = None,
     port: Optional[int] = None,
     verbose: Annotated[bool, typer.Option("--verbose", "-v")] = False,
+    quiet: Annotated[bool, typer.Option("--quiet", "-q")] = False,
 ):
-    if verbose:
-        import logging
+    if not quiet:
+        if verbose:
+            logging.basicConfig(level=logging.DEBUG)
+        else:
+            logging.basicConfig(level=logging.INFO)
 
-        logging.basicConfig(level=logging.DEBUG)
     server = SocketServer(default_socket_mgr_server(path, None if ip is None else ip.ip, port))
-    server.serve()
+
+    asyncio.run(server.serve_forever())
 
 
 def main():
