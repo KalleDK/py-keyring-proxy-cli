@@ -1,3 +1,5 @@
+#:schema https://json.schemastore.org/pyproject.json
+
 [project]
 name = "keyring-proxy-cli"
 version = "0.2.0"
@@ -31,5 +33,5 @@ build-backend = "hatchling.build"
 [dependency-groups]
 tools = [
     "pyright>=1.1.391",
-    "ruff>=0.4.6",
+    "ruff>=0.8.6",
 ]

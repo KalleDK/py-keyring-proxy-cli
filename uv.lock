@@ -155,7 +155,7 @@ wheels = [
 
 [[package]]
 name = "keyring-proxy-cli"
-version = "0.1.12.11"
+version = "0.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "keyring-proxy" },
@@ -177,7 +177,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 tools = [
     { name = "pyright", specifier = ">=1.1.391" },
-    { name = "ruff", specifier = ">=0.4.6" },
+    { name = "ruff", specifier = ">=0.8.6" },
 ]
 
 [[package]]
