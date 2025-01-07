@@ -40,7 +40,7 @@ name = "click"
 version = "8.1.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "colorama", marker = "platform_system == 'Windows'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz", hash = "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a", size = 226593 }
 wheels = [
@@ -142,15 +142,15 @@ wheels = [
 
 [[package]]
 name = "keyring-proxy"
-version = "0.2.15"
+version = "0.2.23"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "keyring" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2b/19/542afcdfdf5336b21168896b587a507aedc06899d8b823f33b7ab6fe4e7b/keyring_proxy-0.2.15.tar.gz", hash = "sha256:e37f43484c1e07dcdd268abc6092504c468bd21349192a0957e35071f31b8e96", size = 5574 }
+sdist = { url = "https://files.pythonhosted.org/packages/25/df/499a03b036bbd535585678d0c249b38950529ad521a965e2318a654bfeb5/keyring_proxy-0.2.23.tar.gz", hash = "sha256:876aeb599e3edaf4b52eef9b359956bd967c1a63aace9a7c96afad91b1800764", size = 20345 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d1/66/2f93946589119ffd82cce9f8ac22a66a0b04ec3807f2ffaf898b316f42ea/keyring_proxy-0.2.15-py3-none-any.whl", hash = "sha256:fd84571582a843c788fefd97a50c0cd9d9f1034ca98aa85c2438fe2a1824247a", size = 8413 },
+    { url = "https://files.pythonhosted.org/packages/f8/a8/2b16806e1db859f773ee1a00d7f3119fa3ac701bf69ae65bf9332553a0d5/keyring_proxy-0.2.23-py3-none-any.whl", hash = "sha256:48eaf23abe31f2b5454c5cfcd29230c15dded10d31ca574da9a7f3c860e309cf", size = 8153 },
 ]
 
 [[package]]
@@ -170,7 +170,7 @@ tools = [
 
 [package.metadata]
 requires-dist = [
-    { name = "keyring-proxy", specifier = ">=0.2.15" },
+    { name = "keyring-proxy", specifier = ">=0.2.23" },
     { name = "typer", specifier = ">=0.12.3" },
 ]
 
