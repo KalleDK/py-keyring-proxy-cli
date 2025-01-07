@@ -14,7 +14,7 @@ tasks:
     cmds:
       - bump-my-version bump patch
       - task: sync
-      - '{{.SHELL}} rm -rf dist'
+      - '{{.SHELL}} rm -r dist'
       - uv build
       - uv publish --keyring-provider=subprocess --username=__token__
       - git push
@@ -24,7 +24,7 @@ tasks:
       - if git commit --dry-run --short; then git commit -m "devrel"; else echo nothing changed; fi
       - bump-my-version bump build
       - task: sync
-      - '{{.SHELL}} rm -rf dist'
+      - '{{.SHELL}} rm -r dist'
       - uv build
       - uv publish --keyring-provider=subprocess --username=__token__
       - git push
