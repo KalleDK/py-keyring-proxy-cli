@@ -2,7 +2,7 @@
 
 [project]
 name = "keyring-proxy-cli"
-version = "0.2.0"
+version = "0.2.0.1"
 description = "Keyring Proxy CLI"
 authors = [{ name = "Kalle M. Aagaard", email = "git@k-moeller.dk" }]
 dependencies = [

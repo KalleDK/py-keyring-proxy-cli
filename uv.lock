@@ -143,19 +143,28 @@ wheels = [
 [[package]]
 name = "keyring-proxy"
 version = "0.2.23"
-source = { registry = "https://pypi.org/simple" }
+source = { directory = "../py-keyring-proxy" }
 dependencies = [
     { name = "keyring" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/25/df/499a03b036bbd535585678d0c249b38950529ad521a965e2318a654bfeb5/keyring_proxy-0.2.23.tar.gz", hash = "sha256:876aeb599e3edaf4b52eef9b359956bd967c1a63aace9a7c96afad91b1800764", size = 20345 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/f8/a8/2b16806e1db859f773ee1a00d7f3119fa3ac701bf69ae65bf9332553a0d5/keyring_proxy-0.2.23-py3-none-any.whl", hash = "sha256:48eaf23abe31f2b5454c5cfcd29230c15dded10d31ca574da9a7f3c860e309cf", size = 8153 },
+
+[package.metadata]
+requires-dist = [
+    { name = "keyring", specifier = ">=25.5.0" },
+    { name = "pydantic", specifier = ">=2.9.2" },
+]
+
+[package.metadata.requires-dev]
+dev = [{ name = "keyrings-alt", specifier = ">=5.0.2" }]
+tools = [
+    { name = "pyright", specifier = ">=1.1.391" },
+    { name = "ruff", specifier = ">=0.8.6" },
 ]
 
 [[package]]
 name = "keyring-proxy-cli"
-version = "0.2.0"
+version = "0.2.0.1"
 source = { editable = "." }
 dependencies = [
     { name = "keyring-proxy" },
@@ -170,7 +179,7 @@ tools = [
 
 [package.metadata]
 requires-dist = [
-    { name = "keyring-proxy", specifier = ">=0.2.23" },
+    { name = "keyring-proxy", directory = "../py-keyring-proxy" },
     { name = "typer", specifier = ">=0.12.3" },
 ]
 
