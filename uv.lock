@@ -142,7 +142,7 @@ wheels = [
 
 [[package]]
 name = "keyring-proxy"
-version = "0.2.23"
+version = "0.2.25"
 source = { directory = "../py-keyring-proxy" }
 dependencies = [
     { name = "keyring" },
