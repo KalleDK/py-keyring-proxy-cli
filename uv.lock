@@ -164,7 +164,7 @@ tools = [
 
 [[package]]
 name = "keyring-proxy-cli"
-version = "0.2.0.1"
+version = "0.2.0.2"
 source = { editable = "." }
 dependencies = [
     { name = "keyring-proxy" },
