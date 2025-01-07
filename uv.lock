@@ -170,7 +170,7 @@ tools = [
 
 [package.metadata]
 requires-dist = [
-    { name = "keyring-proxy", specifier = ">=0.2.14.33" },
+    { name = "keyring-proxy", specifier = ">=0.2.15" },
     { name = "typer", specifier = ">=0.12.3" },
 ]
 
