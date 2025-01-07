@@ -6,7 +6,7 @@ version = "0.2.1.1"
 description = "Keyring Proxy CLI"
 authors = [{ name = "Kalle M. Aagaard", email = "git@k-moeller.dk" }]
 dependencies = [
-    "keyring-proxy>=0.2.23",
+    "keyring-proxy>=0.2.25",
     "typer>=0.12.3",
 ]
 requires-python = ">=3.12"
