@@ -24,12 +24,12 @@ target-version = "py312"
 [tool.pyright]
 include = ["src", "tests"]
 
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [dependency-groups]
 tools = [
+    "pyright>=1.1.391",
     "ruff>=0.4.6",
 ]
