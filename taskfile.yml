@@ -48,7 +48,7 @@ tasks:
       - test $(dirname $(dirname $(pdm info --python))) -ef {{.VENV_DIR}}
   sync:
     cmds:
-      - pdm sync --without tools --only-keep
+      - uv sync
   init:
     deps:
       - use_venv
